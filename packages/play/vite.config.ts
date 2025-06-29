@@ -44,9 +44,4 @@ export default defineConfig({
   build: {
     sourcemap: true, // ✅ 关键
   },
-  resolve: {
-    alias: {
-      "my-component": path.resolve(__dirname, "packages/core"),
-    },
-  },
 });

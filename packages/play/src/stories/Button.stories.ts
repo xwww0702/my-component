@@ -1,7 +1,36 @@
 import type { Meta, StoryObj, ArgTypes } from "@storybook/vue3-vite";
 import { fn, within, userEvent, expect } from "@storybook/test";
+import type { PlayFunction } from "@storybook/types";
+import type { VueRenderer } from "@storybook/vue3-vite";
+import "@qiwen72/my-component/dist/index.css";
+import { MyButton, MyButtonGroup } from "@qiwen72/my-component";
+const playFn: PlayFunction<VueRenderer> = async ({
+  canvasElement,
+  args,
+  step,
+}) => {
+  const canvas = within(canvasElement);
+  await step("click btn", async () => {
+    await userEvent.tripleClick(canvas.getByRole("button"));
+  });
+  expect(args.onClick).toHaveBeenCalled();
+};
 
-import { MyButton, MyButtonGroup } from "my-component";
+const playGroup: PlayFunction<VueRenderer> = async ({
+  canvasElement,
+  args,
+  step,
+}) => {
+  const canvas = within(canvasElement);
+  await step("click btn1", async () => {
+    await userEvent.click(canvas.getByText("Button1"));
+  });
+  await step("click btn2", async () => {
+    await userEvent.click(canvas.getByText("Button2"));
+  });
+  expect(args.onClick).toHaveBeenCalled();
+};
+
 type Story = StoryObj<typeof MyButton> & { argTypes?: ArgTypes };
 
 const meta: Meta<typeof MyButton> = {
@@ -65,7 +94,7 @@ export const Default: Story & { args: { content: string } } = {
     type: "primary",
     content: "Button",
   },
-  render: (args: { content: string }) => ({
+  render: (args: any) => ({
     components: { MyButton },
     setup() {
       return { args };
@@ -75,22 +104,7 @@ export const Default: Story & { args: { content: string } } = {
     ),
   }),
 
-  play: async ({
-    canvasElement,
-    args,
-    step,
-  }: {
-    canvasElement: HTMLElement;
-    args: any;
-    step: (label: string, stepFn: () => Promise<void>) => Promise<void>;
-  }) => {
-    const canvas = within(canvasElement);
-    await step("click btn", async () => {
-      await userEvent.tripleClick(canvas.getByRole("button"));
-    });
-
-    expect(args.onClick).toHaveBeenCalled();
-  },
+  play: playFn,
 };
 
 export const Circle: Story = {
@@ -106,22 +120,7 @@ export const Circle: Story = {
       <my-button circle v-bind="args"/>
     `),
   }),
-  play: async ({
-    canvasElement,
-    args,
-    step,
-  }: {
-    canvasElement: HTMLElement;
-    args: any;
-    step: (label: string, stepFn: () => Promise<void>) => Promise<void>;
-  }) => {
-    const canvas = within(canvasElement);
-    await step("click button", async () => {
-      await userEvent.click(canvas.getByRole("button"));
-    });
-
-    expect(args.onClick).toHaveBeenCalled();
-  },
+  play: playFn,
 };
 
 export const Group: Story & { args: { content1: string; content2: string } } = {
@@ -163,24 +162,7 @@ export const Group: Story & { args: { content1: string; content2: string } } = {
        </my-button-group>
     `),
   }),
-  play: async ({
-    canvasElement,
-    args,
-    step,
-  }: {
-    canvasElement: HTMLElement;
-    args: any;
-    step: (label: string, stepFn: () => Promise<void>) => Promise<void>;
-  }) => {
-    const canvas = within(canvasElement);
-    await step("click btn1", async () => {
-      await userEvent.click(canvas.getByText("Button1"));
-    });
-    await step("click btn2", async () => {
-      await userEvent.click(canvas.getByText("Button2"));
-    });
-    expect(args.onClick).toHaveBeenCalled();
-  },
+  play: playGroup,
 };
 
 export default meta;
