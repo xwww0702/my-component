@@ -4,7 +4,7 @@ import MyComponent from "@qiwen72/my-component";
 import { ElementPlusContainer } from "@vitepress-demo-preview/component";
 
 import "@vitepress-demo-preview/component/dist/style.css";
-import "eric-ui/dist/index.css";
+import "@qiwen72/my-component/dist/index.css";
 
 export default {
   ...DefaultTheme,
