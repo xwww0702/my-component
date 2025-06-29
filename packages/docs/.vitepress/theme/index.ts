@@ -3,7 +3,7 @@ import { type App } from "vue";
 import MyComponent from "@qiwen72/my-component";
 import { ElementPlusContainer } from "@vitepress-demo-preview/component";
 
-import "@vitepress-demo-preview/component/style.css";
+import "@vitepress-demo-preview/component/dist/style.css";
 import "eric-ui/dist/index.css";
 
 export default {
