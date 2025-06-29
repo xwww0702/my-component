@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "pnpm --filter @my-component/play dev",
+    "dev": "pnpm run build && pnpm --filter @my-component/play dev",
     "docs:dev": "pnpm --filter @my-component/docs dev",
     "docs:build": "pnpm --filter @my-component/docs build",
     "test": "pnpm --filter @my-component/components test ",
-    "story": "pnpm --filter @my-component/play storybook",
+    "story": "pnpm run build && pnpm --filter @my-component/play storybook",
     "build": "pnpm --filter my-component build"
   },
   "keywords": [],
