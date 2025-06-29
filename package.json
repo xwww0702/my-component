@@ -9,8 +9,7 @@
     "docs:build": "pnpm --filter @my-component/docs build",
     "test": "pnpm --filter @my-component/components test ",
     "story": "pnpm --filter @my-component/play storybook",
-    "build": "pnpm --filter my-component build",
-    "release":"release-it"
+    "build": "pnpm --filter my-component build"
   },
   "keywords": [],
   "author": "",
