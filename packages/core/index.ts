@@ -8,5 +8,5 @@ printLogo();
 library.add(fas);
 const installer = makeInstaller(components);
 
-export * from "@my-component/components";
+export * from "@qiwen72/my-component";
 export default installer;
