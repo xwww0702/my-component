@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@my-component/components':
+        specifier: workspace:*
+        version: link:packages/components
       '@my-component/hooks':
         specifier: workspace:*
         version: link:packages/hooks
