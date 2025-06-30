@@ -50,6 +50,7 @@
     "@my-component/theme": "workspace:*",
     "@my-component/utils": "workspace:*",
     "@qiwen72/my-component": "workspace:*",
+    "@my-component/components": "workspace:*",
     "lodash-es": "^4.17.21",
     "vue": "^3.5.17"
   }
