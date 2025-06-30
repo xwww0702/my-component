@@ -27,6 +27,7 @@ const iconStyle = computed(() => ({ marginRight: slots.default ? '6px' : '0' }))
 defineExpose<ButtonInstance>({
     ref: _ref
 })
+console.log('Button component loaded')
 </script>
 
 <template>

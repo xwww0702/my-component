@@ -1,3 +1,4 @@
+/// <reference types="node" />
 import { isString } from "lodash-es";
 
 class MyUIError extends Error {

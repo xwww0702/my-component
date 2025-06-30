@@ -19,7 +19,12 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "types": ["node"],
+    "baseUrl": ".",
+    "paths": {
+      "@my-component/components": ["./packages/components"],
+    },
   },
   "include": [
     "env.d.ts",
@@ -27,6 +32,7 @@
     "packages/hooks/**/*.ts",
     "packages/utils/**/*.ts",
     "packages/components/**/*.ts",
+    "env.d.ts"
   ],
   "exclude": ["packages/components/vitest.config.ts","packages/components/index.test.ts"]
 }

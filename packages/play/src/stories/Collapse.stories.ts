@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/vue3-vite";
 import { MyCollapse, MyCollapseItem } from "@qiwen72/my-component";
-
+import "@qiwen72/my-component/dist/theme/Collapse.css";
 type Story = StoryObj<typeof MyCollapse>;
 
 const meta: Meta<typeof MyCollapse> = {

@@ -3,6 +3,8 @@ import { fn, within, userEvent, expect } from "@storybook/test";
 import type { PlayFunction } from "@storybook/types";
 import type { VueRenderer } from "@storybook/vue3-vite";
 import { MyButton, MyButtonGroup } from "@qiwen72/my-component";
+
+import "@qiwen72/my-component/dist/theme/Button.css"; // Import the CSS for the button component
 const playFn: PlayFunction<VueRenderer> = async ({
   canvasElement,
   args,

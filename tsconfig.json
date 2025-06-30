@@ -1,6 +1,7 @@
 {
   "extends": "@vue/tsconfig/tsconfig.dom.json",
   "compilerOptions": {
+    "types": ["node"],
     "target": "ES2020",
     "baseUrl": ".",
     "paths": {
@@ -25,5 +26,5 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["packages/**/*.ts", "packages/**/*.tsx", "packages/**/*.vue"]
+  "include": ["packages/**/*.ts", "packages/**/*.tsx", "packages/**/*.vue","env.d.ts"],
 }
