@@ -3,18 +3,18 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "vitepress dev",
-    "build": "vitepress build",
-    "preview": "vitepress preview"
+    "build": "vitepress build"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "packageManager": "pnpm@10.11.0",
   "devDependencies": {
-    "@vitepress-demo-preview/component": "^2.3.2",
-    "vitepress": "1.0.0-rc.44"
+    "vitepress": "1.0.0-rc.44",
+    "vitepress-preview-component":"workspace:*",
+    "@vitepress-demo-preview/plugin": "^1.4.0"
   }
 }

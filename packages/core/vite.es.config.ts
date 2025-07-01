@@ -1,7 +1,7 @@
 import { defineConfig } from "vite";
 import { resolve } from "path";
-import { readdirSync } from "fs";
-import { map, filter, delay } from "lodash-es";
+import { readdirSync, readdir } from "fs";
+import { map, filter, delay, defer } from "lodash-es";
 
 import dts from "vite-plugin-dts";
 import shell from "shelljs";
@@ -23,13 +23,20 @@ function getDirectoriesSync(basePath: string) {
   );
 }
 
+// function moveStyle() {
+//   try {
+//     readdirSync("./dist/es/theme"); // Ensure the file exists
+//     shell.mv("./dist/es/theme", "./dist"); //全量引入
+//   } catch (e) {
+//     delay(moveStyle, TRY_MOVE_STYLES_DELAY);
+//   }
+// }
+
 function moveStyle() {
-  try {
-    readdirSync("./dist/es/theme"); // Ensure the file exists
-    shell.mv("./dist/es/theme", "./dist"); //全量引入
-  } catch (e) {
-    delay(moveStyle, TRY_MOVE_STYLES_DELAY);
-  }
+  readdir("./dist/es/theme", (err) => {
+    if (err) return delay(moveStyle, TRY_MOVE_STYLES_DELAY);
+    defer(() => shell.mv("./dist/es/theme", "./dist"));
+  });
 }
 
 export default defineConfig({
