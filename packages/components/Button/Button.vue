@@ -25,7 +25,10 @@ const handleBtnClick = (e: MouseEvent) => emits('click', e)
 const handleBtnClickThrottle = throttle(handleBtnClick, props.throttleDuration, { trailing: false })
 const iconStyle = computed(() => ({ marginRight: slots.default ? '6px' : '0' }))
 defineExpose<ButtonInstance>({
-    ref: _ref
+    ref: _ref,
+    disabled,
+    size,
+    type,
 })
 console.log('Button component loaded')
 </script>
