@@ -3,7 +3,8 @@ import type { AlertType } from "./types";
 import { mount } from "@vue/test-utils";
 import Alert from "./Alert.vue";
 import Icon from "../Icon/Icon.vue";
-
+import { WithInstall } from "../../utils/index";
+import { MyAlert } from ".";
 describe("Alert.vue", () => {
   const title = "Test Alert";
   const desc = "This is a test description";
@@ -127,5 +128,25 @@ describe("Alert.vue", () => {
     expect(wrapper.find(".er-alert").attributes().style).toBe("display: none;");
     await wrapper.vm.open();
     expect(wrapper.find(".er-alert").attributes().style).toBe("");
+  });
+});
+
+describe("Alert/index", () => {
+  it("should be exported with withInstall", () => {
+    expect(MyAlert.install).toBeDefined();
+  });
+
+  it("comoponent should be exported", () => {
+    expect(MyAlert).toBe(Alert);
+  });
+  //可选
+  it("should benhance Alert component", () => {
+    const enhancedAlert = WithInstall(Alert);
+    expect(enhancedAlert).toBe(MyAlert);
+  });
+
+  it("should apply specific enhance", () => {
+    const enhancedAlert = WithInstall(Alert);
+    expect(enhancedAlert).toHaveProperty("install");
   });
 });
