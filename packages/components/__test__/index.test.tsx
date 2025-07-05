@@ -7,6 +7,7 @@ import {
   MyCollapse,
   MyCollapseItem,
   MyIcon,
+  MyTooltip,
 } from "..";
 import { get, map } from "lodash-es";
 const comps = [
@@ -16,6 +17,7 @@ const comps = [
   MyCollapse,
   MyCollapseItem,
   MyIcon,
+  MyTooltip,
 ] as Plugin[];
 
 describe("components/index", () => {

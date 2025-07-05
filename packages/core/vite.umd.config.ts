@@ -6,7 +6,7 @@ import { delay } from "lodash-es";
 
 import shell from "shelljs";
 import vue from "@vitejs/plugin-vue";
-import hooks from "./hooksPlugin";
+import { hooksPlugin as hooks } from "@qiwen72/vite-plugins";
 import terser from "@rollup/plugin-terser";
 const TRY_MOVE_STYLES_DELAY = 1000; // 1 second
 const isProd = process.env.NODE_ENV === "production";

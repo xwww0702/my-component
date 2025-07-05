@@ -1,0 +1,16 @@
+{
+    "name": "@qiwen72/vite-plugins",
+    "version": "1.0.0",
+    "private": true,
+    "types":"module",
+    "exports":{
+        ".": {
+            "import": "./.dist/index.mjs",
+            "types": "./.dist/index.d.ts"
+        }
+    },
+    "scripts": {
+       "build":"vite build"
+    }
+    
+}

@@ -14,7 +14,8 @@
     "noEmit": true,
     "jsx": "preserve",
     "jsxImportSource": "vue",
-
+    "declaration": true,
+    "emitDeclarationOnly": true,
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,

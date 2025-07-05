@@ -5,7 +5,7 @@ import { map, filter, delay, defer } from "lodash-es";
 
 import dts from "vite-plugin-dts";
 import shell from "shelljs";
-import hooks from "./hooksPlugin";
+import { hooksPlugin as hooks } from "@qiwen72/vite-plugins";
 import terser from "@rollup/plugin-terser";
 import vue from "@vitejs/plugin-vue";
 
