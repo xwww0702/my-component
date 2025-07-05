@@ -1,23 +1,17 @@
 <script setup lang="ts">
+import { MyPopConfirm, MyButton } from '@qiwen72/my-component';
+function confirm() {
+  console.log('confirm');
+}
+function cancel() {
+  console.log('cancel');
+}
 </script>
 
 <template>
-  <my-button></my-button>
+  <MyPopConfirm title="querenshanchuma" @confirm="confirm" @cancel="cancel">
+    <my-button type="primary" size="small">test</my-button>
+  </MyPopConfirm>
 </template>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
-</style>
+<style scoped></style>

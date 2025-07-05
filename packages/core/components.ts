@@ -1,3 +1,21 @@
-import { MyButton } from "@my-component/components";
+import {
+  MyButton,
+  MyIcon,
+  MyButtonGroup,
+  MyCollapse,
+  MyCollapseItem,
+  MyAlert,
+  MyTooltip,
+  MyPopConfirm,
+} from "../components";
 import type { Plugin } from "vue";
-export default [MyButton] as Plugin[];
+export default [
+  MyButton,
+  MyIcon,
+  MyButtonGroup,
+  MyCollapse,
+  MyCollapseItem,
+  MyAlert,
+  MyTooltip,
+  MyPopConfirm,
+] as Plugin[];
