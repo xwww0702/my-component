@@ -4,3 +4,5 @@ export * from "./Collapse";
 export * from "./Alert";
 export * from "./Tooltip";
 export * from "./PopConfirm";
+export * from "./Dropdown";
+export * from "./ConfigProvider";

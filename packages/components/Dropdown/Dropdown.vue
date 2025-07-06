@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { DropdownProps, DropdownEmits, DropdownContext, DropdownItemProps, DropdownInstance } from './types'
+import { useDisabledStyle } from '@my-component/hooks'
 import type { TooltipInstance } from '../Tooltip/types'
 import { computed, ref, provide } from 'vue'
 import { omit } from 'lodash-es'
@@ -33,6 +34,8 @@ function handleItemClick(e: DropdownItemProps) {
     props.hideOnClick && tooltipRef.value?.hide()
     !isNil(e.command) && emits('command', e.command)
 }
+!TEST && useDisabledStyle() //条件编译
+
 provide<DropdownContext>(DROPDOWN_CTX_KEY, {
     handleItemClick,
     size: computed(() => props.size)

@@ -3,6 +3,7 @@ import { ref, computed } from 'vue'
 import { addUnit } from '@my-component/utils'
 import type { PopconfirmEmits, PopconfirmProps } from './types'
 import type { TooltipInstance } from '../Tooltip'
+import { useLocal } from '@my-component/hooks'
 import MyTooltip from '../Tooltip/Tooltip.vue'
 import MyIcon from '../Icon/Icon.vue'
 import MyButton from '../Button/Button.vue'
@@ -16,13 +17,13 @@ const props = withDefaults(defineProps<PopconfirmProps>(), {
     iconColor: "#f90",
     hideAfter: 200,
     width: 150,
-    cancelButtonText: 'cancel',
-    confirmButtonText: 'confirm'
+    // cancelButtonText: 'cancel',
+    // confirmButtonText: 'confirm'
 })
 const tooltipRef = ref<TooltipInstance>()
 const style = computed(() => ({ width: addUnit(props.width) }))
 const emits = defineEmits<PopconfirmEmits>()
-
+const { t } = useLocal()
 function hidePopper() {
     tooltipRef.value?.hide()
 }
@@ -49,10 +50,10 @@ function cancel(e: MouseEvent) {
                 </div>
                 <div class="er-popconfirm__action">
                     <my-button class="er-popconfirm__cancel" size="small" :type="cancelButtonType" @click="cancel">
-                        {{ cancelButtonText }}
+                        {{ cancelButtonText || t('popconfirm.cancelButtonText') }}
                     </my-button>
                     <my-button class="er-popconfirm__confirm" size="small" :type="confirmButtonType" @click="confirm">
-                        {{ confirmButtonText }}
+                        {{ confirmButtonText || t('popconfirm.confirmButtonText') }}
                     </my-button>
                 </div>
             </div>
