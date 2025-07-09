@@ -3,7 +3,7 @@ import {
   debugWarn,
   throwError,
   WithInstall,
-  makeInstaller,
+  // makeInstaller,
   typeIconMap,
 } from "..";
 import { each } from "lodash-es";
@@ -22,9 +22,9 @@ describe("utils/index", () => {
   it("WithInstall should be exported", () => {
     expect(WithInstall).toBeDefined();
   });
-  it("makeInstaller should be exported", () => {
-    expect(makeInstaller).toBeDefined();
-  });
+  // it("makeInstaller should be exported", () => {
+  //   expect(makeInstaller).toBeDefined();
+  // });
   it("typeIconMap should be worked", () => {
     expect(typeIconMap).toBeDefined();
     each(

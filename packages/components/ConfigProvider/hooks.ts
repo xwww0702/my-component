@@ -31,6 +31,7 @@ export function useGlobalConfig(
   key?: keyof ConfigProviderContext,
   defaultVal = void 0
 ) {
+  //在组件内优先使用局部的config
   const config = getCurrentInstance()
     ? inject(configProviderContextKey, globalConfig)
     : globalConfig;

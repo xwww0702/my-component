@@ -9,6 +9,9 @@ import {
   MyPopConfirm,
   MyDropdown,
   MyDropdownItem,
+  MyMessage,
+  MyNotification,
+  MyInput,
 } from "../components";
 import type { Plugin } from "vue";
 export default [
@@ -22,4 +25,7 @@ export default [
   MyPopConfirm,
   MyDropdown,
   MyDropdownItem,
+  MyMessage,
+  MyNotification,
+  MyInput,
 ] as Plugin[];

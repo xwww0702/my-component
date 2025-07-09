@@ -8,7 +8,7 @@ import {
 } from "vue";
 
 export default function useEventListener(
-  target: MaybeRef<EventTarget | HTMLElement | null>,
+  target: MaybeRef<EventTarget | HTMLElement | undefined>,
   event: string,
   handler: (event: Event) => void
 ) {

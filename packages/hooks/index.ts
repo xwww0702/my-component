@@ -3,4 +3,16 @@ import useEventListener from "./useEventListener";
 import useId from "./useId";
 import useDisabledStyle from "./useDisabledStyle";
 import useLocal from "./useLocale";
-export { useClickOutside, useEventListener, useId, useDisabledStyle, useLocal };
+import useOffset from "./useOffset";
+import useZIndex from "./useZIndex";
+import useFocusController from "./useFocusController";
+export {
+  useClickOutside,
+  useEventListener,
+  useId,
+  useDisabledStyle,
+  useLocal,
+  useOffset,
+  useZIndex,
+  useFocusController,
+};
