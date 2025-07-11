@@ -1,23 +1,13 @@
-<script setup lang="ts">
+<script setup>
+import { ref } from "vue";
+const options = ref([
+  { value: "1", label: "1111" },
+  { value: "2", label: "2111" },
+]);
+const value = ref("");
 </script>
 
 <template>
-  <my-button></my-button>
+  <my-select v-model="value" :options="options" clearable></my-select>
+  <div>{{ value }}</div>
 </template>
-
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
-</style>

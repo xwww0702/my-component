@@ -1,6 +1,5 @@
 import { createApp } from "vue";
-import "./style.css";
 import App from "./App.vue";
-import MyComponent from "my-component";
-
-createApp(App).use(MyComponent).mount("#app");
+import MyComponent, { zhCn } from "@qiwen72/my-component";
+import "@qiwen72/my-component/dist/index.css";
+createApp(App).use(MyComponent, { locale: zhCn }).mount("#app");
