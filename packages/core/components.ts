@@ -13,6 +13,10 @@ import {
   MyNotification,
   MyInput,
   MyMessageBox,
+  MyLoading,
+  MySwitch,
+  MySelect,
+  MyOption,
 } from "../components";
 import type { Plugin } from "vue";
 export default [
@@ -30,4 +34,8 @@ export default [
   MyNotification,
   MyInput,
   MyMessageBox,
+  MyLoading,
+  MySwitch,
+  MySelect,
+  MyOption,
 ] as Plugin[];

@@ -1,19 +1,8 @@
 import type { MessageBoxType } from "./types";
 import { describe, it, expect, vi } from "vitest";
-// import { rAF } from "@my-component/utils";
-import { nextTick } from "vue";
+import { rAF } from "@my-component/utils";
 import MessageBox from "./methods";
 
-const rAF = async () => {
-  return new Promise((res) => {
-    requestAnimationFrame(() => {
-      requestAnimationFrame(async () => {
-        res(null);
-        await nextTick();
-      });
-    });
-  });
-};
 describe("MessageBox Component", () => {
   it("renders correctly", async () => {
     const props = {

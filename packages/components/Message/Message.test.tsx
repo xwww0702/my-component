@@ -1,17 +1,6 @@
-import { describe, expect, it, test } from "vitest";
-import { nextTick } from "vue";
+import { describe, expect, test } from "vitest";
 import { message, closeAll } from "./methods";
-
-const rAF = async () => {
-  return new Promise((res) => {
-    requestAnimationFrame(() => {
-      requestAnimationFrame(async () => {
-        res(null);
-        await nextTick();
-      });
-    });
-  });
-};
+import { rAF } from "@my-component/utils";
 
 function getTopValue(element: Element) {
   const styles = window.getComputedStyle(element);

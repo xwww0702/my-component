@@ -1,21 +1,13 @@
-<script setup lang="ts">
-import { MyMessageBox, MyMessage } from "@qiwen72/my-component";
-
-function openConfirm() {
-  MyMessageBox.confirm(
-    "proxy will permanently delete the file. Continue?",
-    "Warning",
-    { type: "warning" }
-  )
-    .then((action) => {
-      MyMessage.info(`action: ${action}`);
-    })
-    .catch((action) => {
-      MyMessage.warning(`action: ${action}`);
-    });
-}
+<script setup>
+import { ref } from "vue";
+const options = ref([
+  { value: "1", label: "1111" },
+  { value: "2", label: "2111" },
+]);
+const value = ref("");
 </script>
 
 <template>
-  <my-button @click="openConfirm" plain> Click to open the Confirm</my-button>
+  <my-select v-model="value" :options="options" clearable></my-select>
+  <div>{{ value }}</div>
 </template>
