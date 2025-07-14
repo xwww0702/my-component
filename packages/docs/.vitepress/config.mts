@@ -29,9 +29,9 @@ export default defineConfig({
         text: "组件",
         collapsed: false,
         items: [
-          { text: "Button 按钮", link: "/components/button" },
-          { text: "Alert 警告", link: "/components/alert" },
-          { text: "Collapse ", link: "/components/collapse" },
+          { text: "Button", link: "/components/button" },
+          { text: "Alert", link: "/components/alert" },
+          { text: "Collapse", link: "/components/collapse" },
         ],
       },
     ],
