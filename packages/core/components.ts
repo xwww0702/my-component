@@ -17,6 +17,8 @@ import {
   MySwitch,
   MySelect,
   MyOption,
+  MyForm,
+  MyFormItem,
 } from "../components";
 import type { Plugin } from "vue";
 export default [
@@ -38,4 +40,6 @@ export default [
   MySwitch,
   MySelect,
   MyOption,
+  MyForm,
+  MyFormItem,
 ] as Plugin[];

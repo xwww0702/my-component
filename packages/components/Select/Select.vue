@@ -49,6 +49,7 @@ import { MyTooltip } from "../Tooltip";
 import { MyInput } from "../Input";
 import { MyIcon } from "../Icon";
 import { debugWarn, RenderVnode } from "@my-component/utils";
+import { useFormDisabled, useFormItem, useFormItemInputId } from "../Form";
 
 const COMPONENT_NAME = "Select";
 
@@ -78,7 +79,8 @@ const selectStates = reactive<SelectStates>({
   selectedOption: initialOption,
 });
 
-const isDisabled = computed(() => props.disabled);
+// const isDisabled = computed(() => props.disabled);
+const isDisabled = useFormDisabled();
 const children = computed(() =>
   filter(slots.default?.(), (child) => eq(child.type, MyOption))
 );
@@ -140,7 +142,9 @@ const filterPlaceholder = computed(() =>
 
 const handleFilterDebounce = debounce(handleFilter, timeout.value);
 
-const inputId = useId().value;
+// const inputId = useId().value;
+const { formItem } = useFormItem();
+const { inputId } = useFormItemInputId(props, formItem);
 const {
   wrapperRef: inputWrapperRef,
   isFocus,
@@ -270,6 +274,7 @@ function handleClear() {
   emits("clear");
   each(["change", "update:modelValue"], (k) => emits(k as any, ""));
   //form Item clear 的逻辑
+  formItem?.clearValidate();
 }
 function toggleVisible() {
   if (isDisabled.value) return;
@@ -302,6 +307,7 @@ watch(
   () => props.modelValue,
   (val) => {
     //表单校验
+    formItem?.validate("change").catch((err) => debugWarn(err));
     setSelected();
   }
 );

@@ -4,6 +4,8 @@ import { ref, computed, watch, useAttrs, shallowRef, nextTick } from "vue";
 import { useFocusController, useId } from "@my-component/hooks";
 import Icon from "../Icon/Icon.vue";
 import { noop, each } from "lodash-es";
+import { useFormItem, useFormItemInputId, useFormDisabled } from "../Form";
+import { debugWarn } from "@my-component/utils";
 defineOptions({
   name: "MyInput",
   inheritAttrs: false,
@@ -20,8 +22,11 @@ const inputRef = shallowRef<HTMLInputElement>();
 const textareaRef = shallowRef<HTMLTextAreaElement>();
 
 const _ref = computed(() => inputRef.value || textareaRef.value);
-const isDisabled = computed(() => props.disabled);
+// const isDisabled = computed(() => props.disabled);
+const isDisabled = useFormDisabled();
 const attrs = useAttrs();
+const { formItem } = useFormItem();
+const { inputId } = useFormItemInputId(props, formItem);
 
 const showClear = computed(
   () =>
@@ -40,6 +45,7 @@ const { wrapperRef, isFocus, handlerBlur, handlerFocus } = useFocusController(
   {
     afterBlur() {
       //form校验
+      formItem?.validate("blur").catch((err) => debugWarn(err));
     },
   }
 );
@@ -49,6 +55,7 @@ const clear: InputInstance["clear"] = function () {
   each(["input", "change", "update:modelValue"], (e) => emit(e as any, ""));
   emit("clear");
   //清空表单校验
+  formItem?.clearValidate();
 };
 const focus: InputInstance["focus"] = async function () {
   await nextTick();
@@ -78,6 +85,7 @@ watch(
   (newVal) => {
     innerValue.value = newVal;
     //表单验证
+    formItem?.validate("change").catch((err) => debugWarn(err));
   }
 );
 defineExpose<InputInstance>({
@@ -113,7 +121,7 @@ defineExpose<InputInstance>({
         <input
           class="er-input__inner"
           ref="inputRef"
-          :id="useId().value"
+          :id="inputId"
           :type="showPassword ? (pwdVisivble ? 'text' : 'password') : type"
           :disabled="isDisabled"
           :readonly="readonly"
@@ -163,7 +171,7 @@ defineExpose<InputInstance>({
         class="er-textarea__wrapper"
         ref="textareaRef"
         :disabled="isDisabled"
-        :id="useId().value"
+        :id="inputId"
         :readonly="readonly"
         :autocomplete="autocomplete"
         :placeholder="placeholder"

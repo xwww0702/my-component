@@ -2,5 +2,6 @@
   "name": "@my-component/theme",
   "version": "1.0.0",
   "description": "",
-  "main": "index.css"
+  "main": "index.css",
+  "private":true
 }

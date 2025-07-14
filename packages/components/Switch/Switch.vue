@@ -3,6 +3,7 @@ import type { SwitchEmits, SwitchInstance, SwitchProps } from "./types";
 import { watch, computed, ref, onMounted } from "vue";
 import { debugWarn } from "@my-component/utils";
 import { useId } from "@my-component/hooks";
+import { useFormDisabled, useFormItem, useFormItemInputId } from "../Form";
 defineOptions({
   name: "MySwitch",
   inheritAttrs: false,
@@ -13,11 +14,14 @@ const props = withDefaults(defineProps<SwitchProps>(), {
   activeValue: true,
   inactiveValue: false,
 });
-const isDisabled = computed(() => props.disabled);
+// const isDisabled = computed(() => props.disabled);
+const isDisabled = useFormDisabled();
 const innerValue = ref(props.modelValue);
 const inputRef = ref<HTMLInputElement>();
 const checked = computed(() => innerValue.value === props.activeValue);
-const inputId = useId().value;
+// const inputId = useId().value;
+const { formItem } = useFormItem();
+const { inputId } = useFormItemInputId(props, formItem);
 const focus: SwitchInstance["focus"] = () => {
   inputRef.value?.focus();
 };
@@ -35,6 +39,7 @@ onMounted(() => {
 watch(checked, (val) => {
   inputRef.value!.checked = val;
   //form校验
+  formItem?.validate("checked").catch((err) => debugWarn(err));
 });
 defineExpose<SwitchInstance>({
   checked,

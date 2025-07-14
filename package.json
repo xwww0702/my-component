@@ -14,7 +14,11 @@
     "build": "run-s build-hooks build-comp",
     "build-hooks": "cross-env NODE_ENV=production pnpm --filter @my-component/hooks build",
     "build-comp": "cross-env NODE_ENV=production pnpm --filter my-component build",
-    "build:dev": "cross-env NODE_ENV=development pnpm --filter my-component build:watch"
+    "build:dev": "cross-env NODE_ENV=development pnpm --filter my-component build:watch",
+    "changed": "dotenv lerna version --conventional-commits --create-release github --yes",
+    "changed:patch": "dotenv lerna version patch --conventional-commits --create-release github --yes",
+    "changed:major": "dotenv lerna version major --conventional-commits --create-release github --yes",
+    "release": "lerna publish from-package --yes"
   },
   "keywords": [],
   "author": "",
