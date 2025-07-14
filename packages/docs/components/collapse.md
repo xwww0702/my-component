@@ -36,7 +36,7 @@ demo-preview=../demo/collapse/Disabled.vue
 使用 `accordion`属性来定义手风琴模式，一次只能有一个活跃项。
 
 ::: preview
-demo-preview=../demo/collapse/Icon.vue
+demo-preview=../demo/collapse/Accordion.vue
 :::
 
 ## 按钮组
