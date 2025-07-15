@@ -31,7 +31,7 @@ demo-preview=../demo/collapse/Basic.vue
 demo-preview=../demo/collapse/Disabled.vue
 :::
 
-## 图标按钮
+## 手风琴样式
 
 使用 `accordion`属性来定义手风琴模式，一次只能有一个活跃项。
 
@@ -39,7 +39,7 @@ demo-preview=../demo/collapse/Disabled.vue
 demo-preview=../demo/collapse/Accordion.vue
 :::
 
-## 按钮组
+## 自定义 title
 
 使用具名插槽来实现自定义 title。
 
@@ -51,57 +51,36 @@ demo-preview=../demo/collapse/CustomTitle.vue
 
 ### Props
 
-| Name              | Description                       | Type                                                             | Default |
-| ----------------- | --------------------------------- | ---------------------------------------------------------------- | ------- |
-| size              | 尺寸                              | `enum` - `'large'\| 'default'\| 'small'`                         | —       |
-| type              | 类型                              | `enum` - `'primary'\| 'success'\| 'warning'\| 'danger'\| 'info'` | info    |
-| plain             | 是否为朴素按钮                    | `boolean`                                                        | false   |
-| round             | 是否为圆角按钮                    | `boolean`                                                        | false   |
-| circle            | 是否为圆形按钮                    | `boolean`                                                        | false   |
-| loading           | 是否为加载中状态                  | `boolean`                                                        | false   |
-| loading-icon      | 自定义加载中状态图标组件          | `string`                                                         | spinner |
-| disabled          | 按钮是否为禁用状态                | `boolean`                                                        | false   |
-| icon              | 按钮图标                          | `string`                                                         | -       |
-| autofocus         | 是否自动聚焦(原生`autofocus`属性) | `boolean`                                                        | false   |
-| native-type       | 原生 type 属性                    | `enum` - `'button'\| 'submit'\| 'reset'`                         | button  |
-| tag               | 自定义元素标签                    | `string`\/`Component`                                            | button  |
-| use-throttle      | 是否使用节流模式                  | `boolean`                                                        | true    |
-| throttle-duration | 节流模式下，节流时间间隔(ms)      | `number`                                                         | 500     |
+| Name       | Description | Type                 | Default |
+| ---------- | ----------- | -------------------- | ------- |
+| modelValue | active      | `CollapseItemName[]	` | []      |
+| accordion  | 手风琴模式  | `boolean`            | false   |
 
 ### Events
 
-| Name  | Description  | Type                         |
-| ----- | ------------ | ---------------------------- |
-| click | 按钮点击事件 | `(event: MouseEvent)=> void` |
+| Name   | Description | Type                                |
+| ------ | ----------- | ----------------------------------- |
+| change | 活动项切换  | `(name: CollapseItemName[])=> void` |
 
 ### Slots
 
-| Name    | Description        |
-| ------- | ------------------ |
-| default | 默认插槽, 按钮内容 |
-| loading | 自定义加载图标     |
+| Name    | Description  |
+| ------- | ------------ |
+| default | CollapseItem |
 
-### Expose
-
-| Name     | Description    | Type                                 |
-| -------- | -------------- | ------------------------------------ |
-| ref      | 按钮 html 元素 | `Ref<HTMLButtonElement>`             |
-| size     | 按钮尺寸       | `ComputedRef<''\|'small' \|'large'>` |
-| type     | 按钮类型       | `ComputedRef<''\|'primary' \|...>`   |
-| disabled | 按钮禁用状态   | `ComputedRef<boolean>`               |
-
-## ButtonGroup API
+## CollapseItem API
 
 ### Props
 
-| Name     | Description          | Type                                                             | Default |
-| -------- | -------------------- | ---------------------------------------------------------------- | ------- |
-| size     | 尺寸                 | `enum` - `'large'\| 'default'\| 'small'`                         | —       |
-| type     | 类型                 | `enum` - `'primary'\| 'success'\| 'warning'\| 'danger'\| 'info'` | info    |
-| disabled | 按钮组是否为禁用状态 | `boolean`                                                        | false   |
+| Name     | Description | Type                | Default |
+| -------- | ----------- | ------------------- | ------- |
+| name     | 唯一标识符  | ` CollapseItemName` | —       |
+| title    | 面板标题    | `string`            | info    |
+| disabled | 是否禁用    | `boolean`           | false   |
 
 ### Slots
 
-| Name    | Description | Sub Component |
-| ------- | ----------- | ------------- |
-| default | 默认插槽    | Button        |
+| Name    | Description | Sub Component   |
+| ------- | ----------- | --------------- |
+| default | 默认插槽    | collapse 的内容 |
+| title.  | 自定义标题  | 标题样式        |
