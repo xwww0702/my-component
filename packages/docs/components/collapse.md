@@ -7,8 +7,8 @@ next:
   text: Alert
 
 prev:
-  link: /get-started
-  text: 快速开始
+  link: /components/button
+  text: button
 ---
 
 # Collapse 折叠

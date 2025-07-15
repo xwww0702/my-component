@@ -32,7 +32,7 @@ export default defineConfig({
           { text: "Button", link: "/components/button" },
           { text: "Collapse", link: "/components/collapse" },
           { text: "Alert", link: "/components/alert" },
-          { text: "DropDown", link: "/components/dropdown" },
+          { text: "Tooltip", link: "/components/tooltip" },
         ],
       },
     ],

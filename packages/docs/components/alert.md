@@ -3,8 +3,8 @@ title: Collapse
 description: Collapse 组件文档
 
 next:
-  link: /components/
-  text:
+  link: /components/tooltip
+  text: tooltip
 
 prev:
   link: /components/collapse

@@ -4,7 +4,7 @@
       <my-button>Content Slot</my-button>
       <template #content>
         <h3>hihi!</h3>
-        <p>This is me saying that</p>
+        <p>This is me</p>
       </template>
     </my-tooltip>
   </div>
