@@ -1,8 +1,8 @@
 <script setup>
-import { ErMessage } from "eric-ui";
+import { MyMessage } from "@qiwen72/my-component";
 
 function handleClose() {
-  ErMessage.info("close callback");
+  MyMessage.info("close callback");
 }
 </script>
 <template>

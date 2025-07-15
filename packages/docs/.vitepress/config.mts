@@ -30,8 +30,9 @@ export default defineConfig({
         collapsed: false,
         items: [
           { text: "Button", link: "/components/button" },
-          { text: "Alert", link: "/components/alert" },
           { text: "Collapse", link: "/components/collapse" },
+          { text: "Alert", link: "/components/alert" },
+          { text: "DropDown", link: "/components/dropdown" },
         ],
       },
     ],
