@@ -8,9 +8,9 @@
   </div>
   <h2>通过 prop 传入内容</h2>
   <div style="max-width: 600px">
-    <my-alert type="success" title="Success alert" />
-    <my-alert type="info" title="Info alert" />
-    <my-alert type="warning" title="Warning alert" />
-    <my-alert type="danger" title="Error alert" />
+    <my-alert type="success" description="Success alert" />
+    <my-alert type="info" description="Info alert" />
+    <my-alert type="warning" description="Warning alert" />
+    <my-alert type="danger" description="Error alert" />
   </div>
 </template>
