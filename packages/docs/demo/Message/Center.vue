@@ -11,6 +11,5 @@ const openFn1 = () => {
 </script>
 
 <template>
-  <my-button type="primary" @click="$message.closeAll()">close All</my-button>
   <my-button :plain="true" @click="openFn1">center</my-button>
 </template>

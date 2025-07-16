@@ -34,6 +34,7 @@ export default defineConfig({
           { text: "Alert", link: "/components/alert" },
           { text: "Tooltip", link: "/components/tooltip" },
           { text: "Dropdown", link: "/components/dropdown" },
+          { text: "Message", link: "/components/message" },
         ],
       },
     ],
