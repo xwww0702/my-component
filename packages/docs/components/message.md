@@ -20,7 +20,7 @@ prev:
 基础 Message. 支持多种方式调用
 
 ::: preview
-demo-preview=../demo/message/Basic.vue
+demo-preview=../demo/Message/Basic.vue
 :::
 
 ## 不同类型
@@ -28,7 +28,7 @@ demo-preview=../demo/message/Basic.vue
 有四种不同的类型
 
 ::: preview
-demo-preview=../demo/message/Types.vue
+demo-preview=../demo/Message/Types.vue
 :::
 
 ## 可关闭的
@@ -36,7 +36,7 @@ demo-preview=../demo/message/Types.vue
 使用 `showClose`属性来定义是否能关闭
 
 ::: preview
-demo-preview=../demo/message/Closable.vue
+demo-preview=../demo/Message/Closable.vue
 :::
 
 ## 文字居中
@@ -44,7 +44,7 @@ demo-preview=../demo/message/Closable.vue
 可以通过 `center` 属性来设置文字居中
 
 ::: preview
-demo-preview=../demo/message/Center.vue
+demo-preview=../demo/Message/Center.vue
 :::
 
 ## CloseAll
@@ -52,7 +52,7 @@ demo-preview=../demo/message/Center.vue
 可以通过 `$message.closeAll` 一键全部关闭.
 
 ::: preview
-demo-preview=../demo/message/Handler.vue
+demo-preview=../demo/Message/Handler.vue
 :::
 
 ## 全局方法
