@@ -3,7 +3,7 @@ title: Tooltip
 description: Tooltip 组件文档
 
 next:
-  link: /components/
+  link: /components/alert
   text: Alert
 
 prev:

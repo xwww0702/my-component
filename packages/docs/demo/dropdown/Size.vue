@@ -23,7 +23,7 @@ const items: DropdownItemProps[] = [
       <div class="desc">Default</div>
       <my-dropdown :items="items">
         <div class="trigger">
-          <span>Default</span>
+          <span>no hide-on-click</span>
         </div>
       </my-dropdown>
     </div>
@@ -31,7 +31,7 @@ const items: DropdownItemProps[] = [
       <div class="desc">Small</div>
       <my-dropdown :items="items" size="small">
         <div class="trigger">
-          <span>small</span>
+          <span>no hide-on-click</span>
         </div>
       </my-dropdown>
     </div>
@@ -40,7 +40,7 @@ const items: DropdownItemProps[] = [
 
 <style>
 .row {
-  margin-right: 15px;
+  margin-right: 5px;
   display: flex;
   flex-wrap: wrap;
 }

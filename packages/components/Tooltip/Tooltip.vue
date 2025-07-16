@@ -5,8 +5,9 @@ import { debounce, isNil, type DebouncedFunc, bind } from "lodash-es";
 import { createPopper, type Instance } from "@popperjs/core";
 import { useClickOutside } from "@my-component/hooks";
 import useEvenstToTiggerNode from "./useEventToTriggerNode";
+import type { ButtonInstance } from "../Button";
 interface _TooltipProps extends TooltipProps {
-  virtualRef?: HTMLElement | null;
+  virtualRef?: HTMLElement | null | ButtonInstance;
   virtualTriggering?: boolean;
 }
 
@@ -33,7 +34,11 @@ const _triggerNode = ref<HTMLElement | null>(null); //触发节点
 const popperNode = ref<HTMLElement | null>(null);
 const triggerNode = computed(() => {
   if (props.virtualTriggering) {
-    return (props.virtualRef as HTMLElement) ?? _triggerNode.value;
+    return (
+      ((props.virtualRef as ButtonInstance)?.ref as any) ??
+      (props.virtualRef as HTMLElement) ??
+      _triggerNode.value
+    );
   }
   return _triggerNode.value as HTMLElement;
 });

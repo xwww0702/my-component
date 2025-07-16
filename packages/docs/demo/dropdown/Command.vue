@@ -1,5 +1,9 @@
 <script setup lang="ts">
-import type { DropdownItemProps } from "@qiwen72/my-component";
+import {
+  type DropdownItemProps,
+  type DropdownCommand,
+  MyMessage,
+} from "@qiwen72/my-component";
 
 const items: DropdownItemProps[] = [
   { command: "1", label: "Item 1" },
@@ -7,31 +11,19 @@ const items: DropdownItemProps[] = [
   { command: "3", label: "Item 3", disabled: true },
   { command: "4", label: "Item 4", divided: true },
 ];
+
+function handleClick(command: DropdownCommand) {
+  MyMessage.success("click on item " + command);
+}
 </script>
 
 <template>
   <div class="row">
     <div class="col">
-      <div class="desc">Large</div>
-      <my-dropdown :items="items" size="large">
+      <div class="desc">command</div>
+      <my-dropdown :items="items" @command="handleClick">
         <div class="trigger">
-          <span>Large</span>
-        </div>
-      </my-dropdown>
-    </div>
-    <div class="col">
-      <div class="desc">Default</div>
-      <my-dropdown :items="items">
-        <div class="trigger">
-          <span>Default</span>
-        </div>
-      </my-dropdown>
-    </div>
-    <div class="col">
-      <div class="desc">Small</div>
-      <my-dropdown :items="items" size="small">
-        <div class="trigger">
-          <span>small</span>
+          <span>command</span>
         </div>
       </my-dropdown>
     </div>
@@ -40,7 +32,7 @@ const items: DropdownItemProps[] = [
 
 <style>
 .row {
-  margin-right: 15px;
+  margin-right: 5px;
   display: flex;
   flex-wrap: wrap;
 }

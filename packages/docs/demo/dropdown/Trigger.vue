@@ -12,26 +12,26 @@ const items: DropdownItemProps[] = [
 <template>
   <div class="row">
     <div class="col">
-      <div class="desc">Large</div>
-      <my-dropdown :items="items" size="large">
+      <div class="desc">Trigger is click</div>
+      <my-dropdown :items="items" trigger="click">
         <div class="trigger">
-          <span>Large</span>
+          <span>click</span>
         </div>
       </my-dropdown>
     </div>
     <div class="col">
-      <div class="desc">Default</div>
+      <div class="desc">Trigger is hover(Default)</div>
       <my-dropdown :items="items">
         <div class="trigger">
-          <span>Default</span>
+          <span>hover</span>
         </div>
       </my-dropdown>
     </div>
     <div class="col">
-      <div class="desc">Small</div>
-      <my-dropdown :items="items" size="small">
+      <div class="desc">Trigger is contextmenu(Default)</div>
+      <my-dropdown :items="items" trigger="contextmenu">
         <div class="trigger">
-          <span>small</span>
+          <span>contextmenu</span>
         </div>
       </my-dropdown>
     </div>
@@ -40,7 +40,7 @@ const items: DropdownItemProps[] = [
 
 <style>
 .row {
-  margin-right: 15px;
+  margin-right: 5px;
   display: flex;
   flex-wrap: wrap;
 }

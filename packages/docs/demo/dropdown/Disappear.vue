@@ -12,26 +12,18 @@ const items: DropdownItemProps[] = [
 <template>
   <div class="row">
     <div class="col">
-      <div class="desc">Large</div>
-      <my-dropdown :items="items" size="large">
+      <div class="desc">hide-on-click is true(default)</div>
+      <my-dropdown :items="items" hide-on-click="true">
         <div class="trigger">
-          <span>Large</span>
+          <span>hide-on-click</span>
         </div>
       </my-dropdown>
     </div>
     <div class="col">
-      <div class="desc">Default</div>
-      <my-dropdown :items="items">
+      <div class="desc">hide-on-click is false</div>
+      <my-dropdown :items="items" :hide-on-click="false">
         <div class="trigger">
-          <span>Default</span>
-        </div>
-      </my-dropdown>
-    </div>
-    <div class="col">
-      <div class="desc">Small</div>
-      <my-dropdown :items="items" size="small">
-        <div class="trigger">
-          <span>small</span>
+          <span>no hide-on-click</span>
         </div>
       </my-dropdown>
     </div>
@@ -40,7 +32,7 @@ const items: DropdownItemProps[] = [
 
 <style>
 .row {
-  margin-right: 15px;
+  margin-right: 5px;
   display: flex;
   flex-wrap: wrap;
 }

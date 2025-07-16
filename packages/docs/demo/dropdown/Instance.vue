@@ -1,6 +1,11 @@
 <script setup lang="ts">
-import type { DropdownItemProps } from "@qiwen72/my-component";
+import {
+  type DropdownItemProps,
+  type DropdownInstance,
+} from "@qiwen72/my-component";
+import { ref } from "vue";
 
+const _myDropDown = ref<DropdownInstance>();
 const items: DropdownItemProps[] = [
   { command: "1", label: "Item 1" },
   { command: "2", label: "Item 2" },
@@ -12,26 +17,12 @@ const items: DropdownItemProps[] = [
 <template>
   <div class="row">
     <div class="col">
-      <div class="desc">Large</div>
-      <my-dropdown :items="items" size="large">
+      <my-button @click="() => _myDropDown?.open()">Open</my-button>
+      <my-button @click="() => _myDropDown?.close()">Close</my-button>
+      <div class="desc">command</div>
+      <my-dropdown :items="items" ref="_myDropDown">
         <div class="trigger">
-          <span>Large</span>
-        </div>
-      </my-dropdown>
-    </div>
-    <div class="col">
-      <div class="desc">Default</div>
-      <my-dropdown :items="items">
-        <div class="trigger">
-          <span>Default</span>
-        </div>
-      </my-dropdown>
-    </div>
-    <div class="col">
-      <div class="desc">Small</div>
-      <my-dropdown :items="items" size="small">
-        <div class="trigger">
-          <span>small</span>
+          <span>command</span>
         </div>
       </my-dropdown>
     </div>
@@ -40,7 +31,7 @@ const items: DropdownItemProps[] = [
 
 <style>
 .row {
-  margin-right: 15px;
+  margin-right: 5px;
   display: flex;
   flex-wrap: wrap;
 }
