@@ -49,7 +49,7 @@ demo-preview=../demo/message/Center.vue
 
 ## CloseAll
 
-可以通过 `$message.closeAll` 一键全部关闭
+可以通过 `$message.closeAll` 一键全部关闭.
 
 ::: preview
 demo-preview=../demo/message/Handler.vue
