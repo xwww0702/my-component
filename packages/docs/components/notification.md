@@ -3,8 +3,8 @@ title: Notification
 description: Notification 组件文档
 
 next:
-  link: /components/alert
-  text: Alert
+  link: /components/input
+  text: Input
 
 prev:
   link: /components/message

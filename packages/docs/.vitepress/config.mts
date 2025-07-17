@@ -36,6 +36,7 @@ export default defineConfig({
           { text: "Dropdown", link: "/components/dropdown" },
           { text: "Message", link: "/components/message" },
           { text: "Notification", link: "/components/notification" },
+          { text: "MessageBox", link: "/components/messageBox" },
         ],
       },
     ],
