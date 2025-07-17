@@ -53,14 +53,6 @@ demo-preview=../demo/messageBox/ClickOutside.vue
 demo-preview=../demo/messageBox/Custom.vue
 :::
 
-## CloseAll
-
-可以通过 `$Notification.closeAll` 一键全部关闭.
-
-::: preview
-demo-preview=../demo/messageBox/Handler.vue
-:::
-
 ## 全局方法
 
 可以直接调用 `ErMessageBox.alert、ErMessageBox.confirm、ErMessageBox.prompt`
