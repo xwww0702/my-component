@@ -3,20 +3,23 @@ import { MyNotification } from "@qiwen72/my-component";
 import { h } from "vue";
 const open1 = function () {
   MyNotification({
-    title: "Title",
+    title: "offset: 20",
     message: "hihi",
+    type: "success",
+    offset: 20,
   });
 };
 
 const open2 = function () {
   MyNotification({
-    title: "vNode",
-    message: h("h1", "hihi我是h1 "),
+    title: "offset: 40",
+    message: "hihi",
+    type: "success",
+    offset: 40,
   });
 };
 </script>
 <template>
-  <my-button @click="open1">Click-me</my-button>
-  <my-button @click="open2">Click-me-Vnode</my-button>
-  <my-button @click="$Notification.success('hihi')">$Notification</my-button>
+  <my-button @click="open1">offset: 20</my-button>
+  <my-button @click="open2">offset: 40</my-button>
 </template>

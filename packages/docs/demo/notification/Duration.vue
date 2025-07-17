@@ -3,20 +3,23 @@ import { MyNotification } from "@qiwen72/my-component";
 import { h } from "vue";
 const open1 = function () {
   MyNotification({
-    title: "Title",
+    title: "不关闭",
     message: "hihi",
+    type: "success",
+    duration: 0,
   });
 };
 
 const open2 = function () {
   MyNotification({
-    title: "vNode",
-    message: h("h1", "hihi我是h1 "),
+    title: "500",
+    message: "hihi",
+    type: "success",
+    duration: 500,
   });
 };
 </script>
 <template>
-  <my-button @click="open1">Click-me</my-button>
-  <my-button @click="open2">Click-me-Vnode</my-button>
-  <my-button @click="$Notification.success('hihi')">$Notification</my-button>
+  <my-button @click="open1">Duration 0 不自动关闭</my-button>
+  <my-button @click="open2">Duration 500</my-button>
 </template>
