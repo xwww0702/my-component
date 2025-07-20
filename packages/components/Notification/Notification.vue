@@ -1,0 +1,109 @@
+<script setup lang="ts">
+import type { NotificationProps, NotificationCompInstance } from "./types";
+import { computed, onMounted, ref } from "vue";
+import { getLastBottomOffset } from "./methods";
+import { delay, bind } from "lodash-es";
+import { useOffset } from "@my-component/hooks";
+import { addUnit } from "@my-component/utils";
+import { typeIconMap, RenderVnode } from "@my-component/utils";
+import MyIcon from "../Icon/Icon.vue";
+defineOptions({
+  name: "MyNotification",
+});
+
+const props = withDefaults(defineProps<NotificationProps>(), {
+  type: "info",
+  duration: 3000,
+  offset: 20,
+  transitionName: "fade",
+  showClose: true,
+  position: "top-right",
+});
+const visible = ref(false);
+const notifyRef = ref<HTMLDivElement>();
+// div 高度
+const boxHeight = ref(0);
+
+const { topOffset, bottomOffset } = useOffset({
+  getLastBottomOffset: bind(getLastBottomOffset, props),
+  offset: props.offset,
+  boxHeight,
+});
+
+const iconName = computed(() => typeIconMap.get(props.type) ?? "circle-info");
+const horizontalClass = computed(() =>
+  props.position.endsWith("right") ? "right" : "left"
+);
+const verticalProperty = computed(() =>
+  props.position.startsWith("top") ? "top" : "bottom"
+);
+const customStyle = computed(() => ({
+  [verticalProperty.value]: addUnit(topOffset.value),
+  zIndex: props.zIndex,
+}));
+
+let timer: number;
+function startTimmer() {
+  if (props.duration === 0) return; //不会自动关闭
+  timer = delay(close, props.duration);
+}
+function clearTimer() {
+  clearTimeout(timer);
+}
+
+function close() {
+  visible.value = false;
+}
+
+onMounted(() => {
+  visible.value = true;
+  startTimmer();
+});
+
+defineExpose<NotificationCompInstance>({
+  bottomOffset,
+  close,
+});
+</script>
+
+<template>
+  <transition
+    :name="`er-notification-${transitionName}`"
+    @after-leave="!visible && onDestory()"
+    @enter="boxHeight = notifyRef!.getBoundingClientRect().height"
+  >
+    <div
+      ref="notifyRef"
+      class="er-notification"
+      :class="{
+        [`er-notification--${type}`]: type,
+        'show-close': showClose,
+        [horizontalClass]: true,
+      }"
+      :style="customStyle"
+      v-show="visible"
+      role="alert"
+      @click="onClick"
+      @mouseenter="clearTimer"
+      @mouseleave="startTimmer"
+    >
+      <my-icon v-if="iconName" :icon="iconName" class="er-notification__icon" />
+
+      <div class="er-notification__text">
+        <div class="er-notification__title">{{ title }}</div>
+        <div class="er-notification__content">
+          <slot>
+            <render-vnode v-if="message" :vNode="message" />
+          </slot>
+        </div>
+      </div>
+      <div class="er-notification__close" v-if="showClose">
+        <my-icon icon="xmark" @click.stop="close" />
+      </div>
+    </div>
+  </transition>
+</template>
+
+<style scoped>
+@import "./style.css";
+</style>

@@ -1,29 +1,56 @@
 import { defineConfig } from "vitepress";
-
+import {
+  containerPreview,
+  componentPreview,
+} from "@vitepress-demo-preview/plugin";
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "My Awesome Project",
   description: "一个组件库",
   base: "/my-component/",
+  appearance: false,
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      { text: "Home", link: "/" },
-      { text: "Examples", link: "/markdown-examples" },
+      { text: "开始使用", link: "/get-started" },
+      { text: "组件", link: "/components/button" },
     ],
+    search: {
+      provider: "local",
+    },
 
     sidebar: [
       {
-        text: "Examples",
+        text: "指南",
+        collapsed: false,
+        items: [{ text: "快速开始", link: "/get-started" }],
+      },
+      {
+        text: "组件",
+        collapsed: false,
         items: [
-          { text: "Markdown Examples", link: "/markdown-examples" },
-          { text: "Runtime API Examples", link: "/api-examples" },
+          { text: "Button", link: "/components/button" },
+          { text: "Collapse", link: "/components/collapse" },
+          { text: "Alert", link: "/components/alert" },
+          { text: "Tooltip", link: "/components/tooltip" },
+          { text: "Dropdown", link: "/components/dropdown" },
+          { text: "Message", link: "/components/message" },
+          { text: "Notification", link: "/components/notification" },
+          { text: "MessageBox", link: "/components/messageBox" },
+          { text: "Loading", link: "/components/loading" },
+          { text: "Form", link: "/components/form" },
         ],
       },
     ],
 
     socialLinks: [
-      { icon: "github", link: "https://github.com/vuejs/vitepress" },
+      { icon: "github", link: "https://github.com/xwww0702/my-component" },
     ],
+  },
+  markdown: {
+    config: (md) => {
+      md.use(containerPreview);
+      md.use(componentPreview);
+    },
   },
 });
