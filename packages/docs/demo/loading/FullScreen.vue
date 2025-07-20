@@ -29,7 +29,7 @@ const createFullscreen = () => {
   <my-button @click="fullScreen">directive Fullscreen</my-button>
   <my-button @click="createFullscreen">service Fullscreen</my-button>
 </template>
-<style>
+<style scoped>
 .main {
   display: flex;
   justify-content: space-around;

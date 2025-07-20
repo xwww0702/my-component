@@ -18,7 +18,7 @@ const isLoading = ref(true);
     <div class="son">bonjour</div>
   </div>
 </template>
-<style>
+<style scoped>
 .main {
   display: flex;
   justify-content: space-around;

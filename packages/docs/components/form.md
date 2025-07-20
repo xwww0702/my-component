@@ -1,21 +1,17 @@
 ---
-title: Loading
-description: Loading 组件文档
-
-next:
-  link: /components/form
-  text: messageBox
+title: Form
+description: Form 组件文档
 
 prev:
-  link: /components/messageBox
-  text: messageBox
+  link: /components/loading
+  text: loading
 ---
 
-# Loading 加载
+# Form 表单
 
-常用的 Loading
+常用的 Form 组件
 
-## 指令式用法
+## 基础表单
 
 指令式 Loading.
 
