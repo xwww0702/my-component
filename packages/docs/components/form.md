@@ -25,7 +25,6 @@ demo-preview=../demo/form/Basic.vue
 
 ::: preview
 demo-preview=../demo/form/Rule.vue
-
 :::
 
 ## Disabled 禁用
@@ -33,7 +32,6 @@ demo-preview=../demo/form/Rule.vue
 可以给 form 添加 disabled 禁用整个表单，也可以单独给 form item 添加 disabled 禁用
 ::: preview
 demo-preview=../demo/form/Disabled.vue
-
 :::
 
 ## Form API
@@ -85,7 +83,7 @@ demo-preview=../demo/form/Disabled.vue
 | error        | 错误提示文案，如不设置，则会从校验规则的 message 属性中获取 | string         | -       |
 | rules        | 校验规则                                                    | FormItemRule[] | -       |
 
-## SLots
+## Slots
 
 | Name    | Description      | Type           |
 | ------- | ---------------- | -------------- |
