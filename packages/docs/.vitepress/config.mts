@@ -38,6 +38,7 @@ export default defineConfig({
           { text: "Notification", link: "/components/notification" },
           { text: "MessageBox", link: "/components/messageBox" },
           { text: "Loading", link: "/components/loading" },
+          { text: "Form", link: "/components/form" },
         ],
       },
     ],
