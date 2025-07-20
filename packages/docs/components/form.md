@@ -9,52 +9,96 @@ prev:
 
 # Form 表单
 
-常用的 Form 组件
+常用的 `Form` 组件，`Form` 组件中，我开发了两个表单组件，分别是 `Input` 和 `Switch`，其他组件待开发...
 
-## 基础表单
+## 基础用法
 
-指令式 Loading.
-
-::: preview
-demo-preview=../demo/loading/Directive.vue
-:::
-
-## 全屏展示
-
-可以设置 fullscreen，就是全屏展示，lock 可以锁定页面的滚动
+Form 里每个表单组件都需要用 from-item 包裹
 
 ::: preview
-demo-preview=../demo/loading/FullScreen.vue
+demo-preview=../demo/form/Basic.vue
 :::
 
-## 自定义加载图标样式
+## Rule 校验
 
-使用 ` er-loading-spinner`属性来设置 icon
+用 rule 对表单进行校验，要给 item 设置 prop
 
 ::: preview
-demo-preview=../demo/loading/Customise.vue
+demo-preview=../demo/form/Rule.vue
+
 :::
 
-## Loading API
+## Disabled 禁用
+
+可以给 form 添加 disabled 禁用整个表单，也可以单独给 form item 添加 disabled 禁用
+::: preview
+demo-preview=../demo/form/Disabled.vue
+
+:::
+
+## Form API
 
 ### Props
 
-| Name       | Description        | Type          | Default       |
-| ---------- | ------------------ | ------------- | ------------- |
-| target     | 遮罩绑定的目标元素 | `HTMLElement` | document.body |
-| fullscreen | 全屏               | `boolean`     | true          |
-| lock       | 滚动锁定           | `boolean`     | false         |
-| text       | 文字               | `string`      |               |
-| spinner    | 加载图标           | `string`      |               |
-| background | 背景颜色           | `string`      |               |
+| Name                       | Description      | Type                   | Default |
+| -------------------------- | ---------------- | ---------------------- | ------- |
+| model                      | 表单数据         | `Record<string, any>`  |         |
+| rules                      | 校验规则         | `FormRules`            |         |
+| disabled                   | 禁用             | `boolean`              | false   |
+| label-position             | 标签位置         | `'left'  'top' right'` | left    |
+| label-width                | 标签宽度         | `number`               |         |
+| label-suffix               | 标签后缀         | `string`               |         |
+| show-message               | 是否显示提示     | `boolean`              |         |
+| hide-required-asterisk     | 是否隐藏必填符号 | `boolean`              |         |
+| required-asterisk-position | 必填符号的位置   | `left/right`           |         |
 
-### Directive
+### Events
 
-| Name                  | Description      | Type      |
-| --------------------- | ---------------- | --------- |
-| v-loading             | 是否显示加载动画 | `boolean` |
-| fullscreen            | 全屏             | `boolean` |
-| lock                  | 滚动锁定         | `boolean` |
-| er-loading-text       | 文字             | `string`  |
-| er-loading-spinner    | 加载图标         | `string`  |
-| er-loading-background | 背景颜色         | `string`  |
+| Name     | Description          | Type                                                              |
+| -------- | -------------------- | ----------------------------------------------------------------- |
+| validate | 验证表单项校验后触发 | (prop: FormItemProps, isValid: boolean, message: string ) => void |
+
+## Slots
+
+| Name    | Description | Type         |
+| ------- | ----------- | ------------ |
+| default | 插槽        | my-form-item |
+
+## Instance
+
+| Name          | Description    | Type                                                                                                   |
+| ------------- | -------------- | ------------------------------------------------------------------------------------------------------ |
+| validate      | 校验表单项     | () => Promise<boolean>                                                                                 |
+| validateField | 校验指定表单项 | (props?: string[],callback?:(isValid:boolean,invalidFields?: ValidateFieldsError)) => Promise<boolean> |
+| resetFields   | 重置表单项     | (props?: string[]) => void                                                                             |
+| clearValidate | 清除校验状态   | (props?: string[]) => void                                                                             |
+
+## FormItem API
+
+| Name         | Description                                                 | Type           | Default |
+| ------------ | ----------------------------------------------------------- | -------------- | ------- | ------ | --- |
+| prop         | 表单域                                                      | model          | 字段    | string | -   |
+| label        | 标签文本                                                    | string         | -       |
+| disabled     | 是否禁用表单域                                              | boolean        | false   |
+| required     | 是否必填，如不设置，则会根据校验规则自动生成                | boolean false  |
+| show-message | 是否显示校验错误信息                                        | boolean        | true    |
+| error        | 错误提示文案，如不设置，则会从校验规则的 message 属性中获取 | string         | -       |
+| rules        | 校验规则                                                    | FormItemRule[] | -       |
+
+## SLots
+
+| Name    | Description      | Type           |
+| ------- | ---------------- | -------------- |
+| default | 默认插槽         | -              |
+| label   | label 插槽       | {label:string} |
+| error   | 错误提示文案插槽 | {error:string} |
+
+## Instance
+
+| Name            | Description  | Type                                                                                                          |
+| --------------- | ------------ | ------------------------------------------------------------------------------------------------------------- |
+| validateStatus  | 校验状态     | 'success' 'error' 'validating' 'init'                                                                         |
+| validateMessage | 校验信息     | Ref<string>                                                                                                   |
+| validate        | 校验表单项   | (trigger: string,callback?: (valid: boolean,invalidFields?: ValidateFieldsError) => void) => Promise<boolean> |
+| resetField      | 重置表单     | () => void                                                                                                    |
+| clearValidate   | 清除校验状态 | () => void                                                                                                    |

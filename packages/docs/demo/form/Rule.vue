@@ -27,7 +27,7 @@ const reset = () => {
 };
 </script>
 <template>
-  <my-form :model="form" :rules="rules" ref="formRef" disabled>
+  <my-form :model="form" :rules="rules" ref="formRef">
     <my-form-item label="name" prop="name">
       <my-input v-model="form.name"></my-input>
     </my-form-item>
