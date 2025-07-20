@@ -57,7 +57,7 @@ demo-preview=../demo/messageBox/Custom.vue
 
 可以直接调用 `ErMessageBox.alert、ErMessageBox.confirm、ErMessageBox.prompt`
 
-## dropdown API
+## MessageBox API
 
 ### Props
 

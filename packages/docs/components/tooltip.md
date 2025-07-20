@@ -47,7 +47,7 @@ demo-preview=../demo/tooltip/Trigger.vue
 demo-preview=../demo/tooltip/Content.vue
 :::
 
-## Collapse API
+## Tooltip API
 
 ### Props
 

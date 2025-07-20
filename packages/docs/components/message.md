@@ -59,7 +59,7 @@ demo-preview=../demo/Message/Handler.vue
 
 可以通过 `$message` 直接调用
 
-## dropdown API
+## Message API
 
 ### Props
 

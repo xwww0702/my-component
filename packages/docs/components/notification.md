@@ -75,7 +75,7 @@ demo-preview=../demo/notification/Handler.vue
 
 可以通过 `$Notification` 直接调用
 
-## dropdown API
+## Notification API
 
 ### Props
 
