@@ -75,15 +75,15 @@ demo-preview=../demo/form/Disabled.vue
 
 ## FormItem API
 
-| Name         | Description                                                 | Type           | Default  |
-| ------------ | ----------------------------------------------------------- | -------------- | -------- |
-| prop         | 表单域 model 字段                                           | string         | -        |
-| label        | 标签文本                                                    | string         | -        |
-| disabled     | 是否禁用表单域                                              | boolean        | false    |
-| required     | 是否必填，如不设置，则会根据校验规则自动生成                | boolean        | false ｜ |
-| show-message | 是否显示校验错误信息                                        | boolean        | true     |
-| error        | 错误提示文案，如不设置，则会从校验规则的 message 属性中获取 | string         | -        |
-| rules        | 校验规则                                                    | FormItemRule[] | -        |
+| Name         | Description                                                 | Type           | Default |
+| ------------ | ----------------------------------------------------------- | -------------- | ------- |
+| prop         | 表单域 model 字段                                           | string         | -       |
+| label        | 标签文本                                                    | string         | -       |
+| disabled     | 是否禁用表单域                                              | boolean        | false   |
+| required     | 是否必填，如不设置，则会根据校验规则自动生成                | boolean        | false   |
+| show-message | 是否显示校验错误信息                                        | boolean        | true    |
+| error        | 错误提示文案，如不设置，则会从校验规则的 message 属性中获取 | string         | -       |
+| rules        | 校验规则                                                    | FormItemRule[] | -       |
 
 ## SLots
 
